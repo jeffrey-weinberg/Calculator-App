@@ -33,8 +33,14 @@ class App extends Component {
     this.setState({input: "0"})
   }
 
-  handleEqual = () => {
-    this.setState({input: math.eval(this.state.input)})
+  handleEqual = (val) => {
+    let screenString = this.state.input
+    let lastChar = screenString[screenString.length -1]
+    if (lastChar === '+'|| lastChar === '-'|| lastChar === '*'|| lastChar === '/') {
+      this.setState({input: this.state.input})
+    } else {
+      this.setState({input: math.eval(this.state.input)})
+    }
   }
 
   handleNeg = () => {
