@@ -22,8 +22,12 @@ class App extends Component {
   }
 
   addOperatorToInput = val => {
+    let screenString = this.state.input
+    let lastChar = screenString[screenString.length -1]
     if (this.state.input === "0") {
       this.setState({input: "0"})
+    } else if (lastChar === '+'|| lastChar === '-'|| lastChar === '*'|| lastChar === '/') {
+      this.setState({input: this.state.input});
     } else {
       this.setState({input: this.state.input + val});
     }
